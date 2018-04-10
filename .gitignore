@@ -1,0 +1,5 @@
+gan_weight/
+regression_weight/
+gen_data/
+__pycache__/
+.idea/
