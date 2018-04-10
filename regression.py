@@ -6,7 +6,7 @@ from sklearn.utils import shuffle
 
 class CL_Regression:
     def __init__(self, input_data=None, labels=None, num_epochs=1000):
-        self.learning_rate = 0.005
+        self.learning_rate = 0.01
         self.num_epochs = num_epochs
         self.batch_size = 128
         self.input_dim = 6
@@ -38,7 +38,6 @@ class CL_Regression:
         is_stopped = False
         early_stop = 10
         count = 0
-        print("\n\nRegression is training")
 
         for i in range(self.num_epochs):
             if is_stopped: break

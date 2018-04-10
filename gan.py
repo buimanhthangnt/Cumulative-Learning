@@ -7,13 +7,12 @@ from sklearn.utils import shuffle
 
 class CL_Gan:
     def __init__(self, input_data=None):
-        units = input_data.shape[0] // 24
         self.input_data = input_data
-        self.learning_rate = 0.0005
+        self.learning_rate = 0.001
         self.batch_size = 128
-        self.num_epochs = 24000
-        self.gen_hidden_dim = units
-        self.disc_hidden_dim = units
+        self.num_epochs = 32000
+        self.gen_hidden_dim = 32
+        self.disc_hidden_dim = 20
         self.noise_dim = 3
         self.input_dim = 6
         self.weights = {
@@ -84,7 +83,7 @@ class CL_Gan:
                                         feed_dict=feed_dict)
                 sess.run(self.train_gen, feed_dict=feed_dict)
 
-                if (i % 200 == 0 or i == 1) and idx == 0:
+                if (i % 1000 == 0 or i == 1) and idx == 0:
                     print('Step %i: Generator Loss: %f, Discriminator Loss: %f' % (i, gl, dl))
 
         saver = tf.train.Saver()
