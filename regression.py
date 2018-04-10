@@ -14,7 +14,7 @@ class CL_Regression:
         self.hidden_dim_2 = 20
         if input_data is not None and labels is not None:
             self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
-                input_data, labels, test_size=0.2)
+                input_data, labels, test_size=0.2, shuffle=True)
         self.build_model()
 
     def build_model(self):

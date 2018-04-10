@@ -11,7 +11,7 @@ class CL_Gan:
         self.learning_rate = 0.001
         self.batch_size = 128
         self.num_epochs = 32000
-        self.gen_hidden_dim = 32
+        self.gen_hidden_dim = 24
         self.disc_hidden_dim = 20
         self.noise_dim = 3
         self.input_dim = 6
