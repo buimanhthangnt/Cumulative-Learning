@@ -23,9 +23,11 @@ class CL_Regression:
         hidden1 = tf.layers.dense(self.data, self.hidden_dim_1, use_bias=True,
                                   kernel_initializer=tf.contrib.layers.xavier_initializer())
         hidden1 = tf.sigmoid(hidden1)
+        hidden1 = tf.nn.dropout(hidden1, keep_prob=0.95)
         hidden2 = tf.layers.dense(hidden1, self.hidden_dim_2, use_bias=True,
                                   kernel_initializer=tf.contrib.layers.xavier_initializer())
         hidden2 = tf.sigmoid(hidden2)
+        hidden2 = tf.nn.dropout(hidden2, keep_prob=0.95)
         self.predicts = tf.layers.dense(hidden2, 1, use_bias=True,
                                         kernel_initializer=tf.contrib.layers.xavier_initializer())
         self.loss = tf.reduce_mean(tf.squared_difference(self.predicts, self.labels))

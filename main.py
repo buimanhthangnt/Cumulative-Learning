@@ -21,11 +21,11 @@ filtered_labels = dataset[1:, -1]
 labels = np.reshape(np.log(filtered_labels), (-1, 1))
 
 
-# train Generative Adversarial Network
-# GAN = CL_Gan(data)
-# GAN.train()
-# # generate date using GAN
-# GAN.generate_data(size=300)
+train Generative Adversarial Network
+GAN = CL_Gan(data)
+GAN.train()
+# generate date using GAN
+GAN.generate_data(size=300)
 
 
 
@@ -34,19 +34,19 @@ Regression = CL_Regression(data, labels, 8000)
 Regression.train()
 
 
-# # load generated data
-# gendata = load_gendata("./gen_data/data.txt")
-# # generate label for generated data using trained Regression
-# Regression.generate_labels(gendata)
-# # load generated labels for generated data
-# genlabels = load_genlabels("./gen_data/labels.txt")
+# load generated data
+gendata = load_gendata("./gen_data/data.txt")
+# generate label for generated data using trained Regression
+Regression.generate_labels(gendata)
+# load generated labels for generated data
+genlabels = load_genlabels("./gen_data/labels.txt")
 
 
 
-# print("\n\nTrain another Regression Network using generated data and labels")
-# Regression2 = CL_Regression(gendata, genlabels, 800)
-# Regression2.train()
+print("\n\nTrain another Regression Network using generated data and labels")
+Regression2 = CL_Regression(gendata, genlabels, 800)
+Regression2.train()
 
 
-# print("\n\nTest model using real data")
-# Regression2.test(data, labels)
+print("\n\nTest model using real data")
+Regression2.test(data, labels)
